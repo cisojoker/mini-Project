@@ -11,6 +11,7 @@ const Navbar = () => {
     const expandNav = () => {
         setNavExpand(!navExpand)
     }
+    console.log(router.pathname)
 
     return (
         <>
@@ -22,14 +23,14 @@ const Navbar = () => {
                 </div>
                 <div className="center lg:w-full hidden lg:block">
                     <ul className='flex items-center justify-center space-x-6 text-xl'>
-                        <li className='hover:bg-[rgba(255,255,255,0.2)]  p-1 px-4 rounded-md transition-all duration-300 cursor-pointer'><Link href='/'>Home</Link></li>
-                        <li className='hover:bg-[rgba(255,255,255,0.2)] p-1 px-4 rounded-md transition-all duration-300 cursor-pointer'><Link href='/video'>Videos</Link></li>
-                        <li className='hover:bg-[rgba(255,255,255,0.2)] p-1 px-4 rounded-md transition-all duration-300 cursor-pointer'><Link href='/about'>About</Link></li>
-                        <li className='hover:bg-[rgba(255,255,255,0.2)] p-1 px-4 rounded-md transition-all duration-300 cursor-pointer'><Link href='/contact'>Contact Us</Link></li>
+                        <li className={`hover:bg-[rgba(255,255,255,0.2)] ${router.pathname == '/' ? 'bg-[rgba(255,255,255,0.2)]' : ''}  p-1 px-4 rounded-md transition-all duration-300 cursor-pointer`}><Link href='/'>Home</Link></li>
+                        <li className={`hover:bg-[rgba(255,255,255,0.2)] ${router.pathname == '/video' ? 'bg-[rgba(255,255,255,0.2)]' : ''} p-1 px-4 rounded-md transition-all duration-300 cursor-pointer`}><Link href='/video'>Videos</Link></li>
+                        <li className={`hover:bg-[rgba(255,255,255,0.2)] ${router.pathname == '/about' ? 'bg-[rgba(255,255,255,0.2)]' : ''} p-1 px-4 rounded-md transition-all duration-300 cursor-pointer`}><Link href='/about'>About</Link></li>
+                        <li className={`hover:bg-[rgba(255,255,255,0.2)] ${router.pathname == '/contact' ? 'bg-[rgba(255,255,255,0.2)]' : ''} p-1 px-4 rounded-md transition-all duration-300 cursor-pointer`}><Link href='/contact'>Contact Us</Link></li>
                     </ul>
                 </div>
                 <div className="right w-3/4 lg:w-full flex justify-end">
-                    <Button content='Join the waitlist!' />
+                    <Button content='Join the waitlist!' destination='waitlist' />
                 </div>
                 <div className="hamburger -mr-2 ml-2 lg:hidden space-y-1">
                     <div onClick={expandNav} className={`${navExpand ? '-rotate-45 translate-y-[0.45rem]' : ''} w-6 transition-all duration-300 rounded-full bg-white h-1`}></div>

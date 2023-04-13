@@ -21,8 +21,8 @@ const Hero = () => {
                     <span className={`text-7xl  md:text-8xl font-bold`}> future of video search</span>
                     <span className={`text-4xl  md:text-4xl font-bold`}> with our</span>
                     <span className={`text-7xl  md:text-8xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-violet-500`}> AI-powered search engine!</span>
-                    <div className="button my-4">
-                        <Button content="Join the waitlist!" />
+                    <div className="button my-8">
+                            <Button content="Join the waitlist!" destination='waitlist' />
                     </div>
                 </div>
                 <div className="image h-[40rem] lg:h-full md:pt-10 pl-10 lg:w-1/4">
@@ -31,7 +31,7 @@ const Hero = () => {
                     />
                 </div>
             </motion.div>
-            <div className="scroll absolute -mt-16 md:-mt-4 lg:-mt-32 animate-bounce cursor-pointer left-[47%] md:left-1/2 rounded-full border border-[rgba(255,255,255,0.4)]">
+            <div className="scroll hidden lg:block absolute -mt-16 md:-mt-4 lg:-mt-32 animate-bounce cursor-pointer left-[47%] md:left-1/2 rounded-full border border-[rgba(255,255,255,0.4)]">
                 <FontAwesomeIcon className='text-white text-xl font-light px-3 py-4' icon={faArrowDown} />
             </div>
         </>

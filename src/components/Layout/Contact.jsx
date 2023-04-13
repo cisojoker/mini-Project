@@ -14,7 +14,7 @@ const Contact = () => {
             <div className={`contact relative transition-all duration-1000  backdrop-blur-3xl z-30 lg:top-24 top-10 lg:flex border border-[rgba(255,255,255,0.1)] bg-[rgba(255,255,255,1)] shadow-2xl shadow-black rounded-2xl m-1 lg:p-8 lg:mx-32`}>
                 <div className="details space-y-8 p-6 lg:w-1/2">
                     <h1 className='lg:text-6xl text-5xl font-jost font-bold'>We believe there&apos;s a better way to Scale your Business.</h1>
-                    <p className={`text-xl font-medium`}>Thank you for visiting my website! If you have any questions, concerns, or feedback, please don&apos;t hesitate to reach out to me. I am dedicated to providing you with excellent customer service and support.</p>
+                    <p className={`text-xl font-medium`}>Thank you for visiting our website! If you have any questions, concerns, or feedback, please don&apos;t hesitate to reach out to us. We am dedicated to providing you with excellent customer service and support.</p>
                     <button className={`bg-orange-400 p-3 rounded-sm transition-all duration-300 hover:-translate-y-1`}>
                         <Link className=' flex items-center' href='https://www.linkedin.com/in/vishal-chaurasia-9a421022a/'>
                             Message me on
@@ -24,7 +24,7 @@ const Contact = () => {
                 </div>
                 <div className="form p-6 lg:p-0 lg:w-1/2">
                     <h1 className='text-2xl font-bold font-jost'>Got a
-                        <span className='ml-2 before:block before:absolute before:-inset-1 before:-skew-y-3 before:bg-orange-500 relative inline-block'>
+                        <span className='ml-2 before:block before:absolute before:-inset-1 before:-skew-y-3 before:bg-orange-400 relative inline-block'>
                             <span className='relative text-white text-6xl font-bold'>Project</span>
                         </span>
                     </h1>
