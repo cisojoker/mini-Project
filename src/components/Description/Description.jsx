@@ -53,7 +53,7 @@ const Description = () => {
                             variants={listVariants1}
                             initial="hidden"
                             animate={inView1 ? "visible" : "hidden"}
-                            className="text order-2 lg:order-1 font-jost text-white space-y-8 mt-12 lg:w-1/2">
+                            className="text order-2 lg:order-1 text-center lg:text-left font-jost text-white space-y-8 mt-12 lg:w-1/2">
                             <p className='relative text-5xl lg:text-7xl'>
                                 <span className="before:block before:absolute before:-inset-1 before:-skew-y-3 before:bg-pink-500 relative inline-block">
                                     <span className="relative text-white">Short videos</span>
@@ -80,7 +80,7 @@ const Description = () => {
                             variants={listVariants2}
                             initial="hidden"
                             animate={inView2 ? "visible" : "hidden"}
-                            className="text order-2 font-jost text-white space-y-8 mt-12 lg:w-1/2">
+                            className="text order-2 text-center lg:text-left  font-jost text-white space-y-8 mt-12 lg:w-1/2">
                             <p className='relative text-5xl lg:text-7xl'>
                                 <span className="before:block before:absolute before:-inset-1 before:-skew-y-3 before:bg-[#FF8D44] relative inline-block">
                                     <span className="relative text-white">User-friendly</span>
@@ -107,7 +107,7 @@ const Description = () => {
                             variants={listVariants1}
                             initial="hidden"
                             animate={inView3 ? "visible" : "hidden"}
-                            className="text order-2 lg:order-1 font-jost text-white space-y-8 mt-12 lg:w-1/2">
+                            className="text order-2 lg:order-1 text-center lg:text-left font-jost text-white space-y-8 mt-12 lg:w-1/2">
                             <p className='relative text-5xl lg:text-7xl'>
                                 <span className="before:block before:absolute before:-inset-1 before:-skew-y-3 before:bg-[#74B687] relative inline-block">
                                     <span className="relative text-white">Advanced</span>

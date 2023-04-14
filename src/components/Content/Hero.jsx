@@ -16,7 +16,7 @@ const Hero = () => {
                     initial={{ opacity: 0, x: -100 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.5, delay: 0.4 }}
-                    className={`content order-2 lg:order-1 font-jost text-white lg:w-1/2`}>
+                    className={`content order-2 lg:order-1 text-center lg:text-left  font-jost text-white lg:w-1/2`}>
                     {/* <span className={`text-4xl  md:text-4xl font-bold`}>Find the</span>
                     <span className={`text-7xl  md:text-8xl font-bold`}> perfect video answers</span>
                     <span className={`text-4xl  md:text-4xl font-bold`}> in seconds - experience the</span> */}

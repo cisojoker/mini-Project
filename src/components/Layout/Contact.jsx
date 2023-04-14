@@ -1,7 +1,7 @@
-// import { faLinkedin } from 'fortawesome/free-brands-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
+import { faTwitter } from '@fortawesome/free-brands-svg-icons'
 
 const Contact = () => {
 
@@ -17,8 +17,8 @@ const Contact = () => {
                     <p className={`text-xl font-medium`}>Thank you for visiting our website! If you have any questions, concerns, or feedback, please don&apos;t hesitate to reach out to us. We am dedicated to providing you with excellent customer service and support.</p>
                     <button className={`bg-orange-400 p-3 rounded-sm transition-all duration-300 hover:-translate-y-1`}>
                         <Link className=' flex items-center' href='https://www.linkedin.com/in/vishal-chaurasia-9a421022a/'>
-                            Message me on
-                            {/* <FontAwesomeIcon className='mx-1 text-xl' icon={faLinkedin} /> */}
+                            Message us on
+                            <FontAwesomeIcon className='mx-1 text-xl' icon={faTwitter} />
                         </Link>
                     </button>
                 </div>
@@ -32,7 +32,7 @@ const Contact = () => {
                         <input required className={`outline-none transition-all duration-300 border-slate-400 drop-shadow-sm border-2 rounded-xl p-4`} type="text" placeholder='Enter Full Name*' name="clientname" id="clientname" />
                         <input required className={`outline-none transition-all duration-300 border-slate-400 drop-shadow-sm border-2 rounded-xl p-4`} type="email" placeholder='Enter Email Address' name="email" id="email" />
                         <textarea required className={` transition-all duration-300 outline-none border-slate-400 drop-shadow-sm border-2 rounded-xl p-4`} name="message" id="" placeholder='Tell Us Something About Your Project' cols="30" rows="4"></textarea>
-                        <input type='submit' value='Contact Me' className={`bg-orange-400 p-3 w-fit cursor-pointer rounded-sm transition-all duration-300 hover:-translate-y-1`} />
+                        <input type='submit' value='Contact Us' className={`bg-orange-400 p-3 w-fit cursor-pointer rounded-sm transition-all duration-300 hover:-translate-y-1`} />
                         <input type="hidden" name="_next" value="https://the-daily-scoop.vercel.app/" />
                         <input type="hidden" name="_captcha" value="false"></input>
                     </form>
