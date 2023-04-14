@@ -10,7 +10,7 @@ const Contact = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1 }}
-            className={`wrapper py-10 transition-all z-30 relative duration-300 px-2 mt-10 lg:mt-0 `}>
+            className={`wrapper py-10 transition-all z-30 relative duration-300 px-2 mt-10 mb-10 lg:mb-32 lg:mt-0 `}>
             <div className={`contact relative transition-all duration-1000  backdrop-blur-3xl z-30 lg:top-24 top-10 lg:flex border border-[rgba(255,255,255,0.1)] bg-[rgba(255,255,255,1)] shadow-2xl shadow-black rounded-2xl m-1 lg:p-8 lg:mx-32`}>
                 <div className="details space-y-8 p-6 lg:w-1/2">
                     <h1 className='lg:text-6xl text-5xl font-jost font-bold'>We believe there&apos;s a better way to Scale your Business.</h1>

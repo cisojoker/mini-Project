@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import Button from './Button'
 import { useRouter } from 'next/router';
 import Link from 'next/link';
+import { motion } from "framer-motion"
 
 const Navbar = () => {
 
@@ -15,7 +16,10 @@ const Navbar = () => {
 
     return (
         <>
-            <nav className='z-50 text-white font-jost fixed top-0 left-0 right-0 bg-black flex justify-between items-center px-5 md:px-10 py-4'>
+            <motion.nav
+                initial={{ y: -100 }}
+                animate={{ y: 0 }}
+                className='z-50 text-white font-jost fixed top-0 left-0 right-0 bg-black flex justify-between items-center px-5 md:px-10 py-4'>
                 <div className="left w-1/4 lg:w-full ">
                     <Link href='/'>
                         <h1 className={`logo font-roboto font-extrabold text-2xl`}>Clip<span className='text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-violet-500'>Surf</span> </h1>
@@ -37,7 +41,7 @@ const Navbar = () => {
                     <div onClick={expandNav} className={`${navExpand ? 'scale-0' : ''} w-6 transition-all duration-300 rounded-full bg-white h-1`}></div>
                     <div onClick={expandNav} className={`${navExpand ? 'rotate-45 -translate-y-2' : ''} w-6 transition-all duration-300 rounded-full bg-white h-1`}></div>
                 </div>
-            </nav >
+            </motion.nav >
             <div className={`expanded lg:hidden w-full text-white z-40 h-screen flex items-center justify-center backdrop-blur-3xl fixed top-0 transition-all duration-500 ${navExpand ? '' : 'translate-x-[60rem]'}`}>
                 <ul className={`flex text-2xl space-y-4 flex-col justify-center font-jost text-center items-center`}>
                     <li onClick={expandNav} className='cursor-pointer'><Link href='/'>Home</Link></li>

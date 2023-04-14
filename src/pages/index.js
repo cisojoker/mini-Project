@@ -1,11 +1,12 @@
 import Image from 'next/image'
-import Hero from '@/components/Layout/Hero'
-import Waitlist from '@/components/Layout/Waitlist'
+import Hero from '@/components/Content/Hero'
+import Description from '@/components/Description/Description'
 
 export default function Home() {
   return (
     <>
       <Hero />
+      <Description/>
     </>
   )
 }
