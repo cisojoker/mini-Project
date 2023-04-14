@@ -44,8 +44,8 @@ const Description = () => {
 
     return (
         <>
-            <div id='description' className="container py-12 lg:pt-24 px-10 lg:px-0 lg:mx-auto">
-                <h1 className='text-7xl  lg:text-8xl font-jost font-bold text-white lg:ml-20'>Features</h1>
+            <div id='description' className="container py-12 lg:pt-24 px-7 lg:px-0 lg:mx-auto">
+                <h1 className='text-7xl  lg:text-8xl text-center lg:text-left  font-jost font-bold text-white lg:ml-20'>Features</h1>
                 <div className="description flex flex-col space-y-10">
                     <div className="list1 overflow-hidden w-full flex flex-col lg:flex-row items-center justify-center">
                         <motion.div

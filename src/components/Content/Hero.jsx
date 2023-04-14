@@ -11,7 +11,7 @@ const Hero = () => {
     return (
         <>
             <motion.div
-                className="main_container overflow-hidden h-full lg:h-screen w-full px-10 lg:pl-48 lg:pt-10 mt-28 lg:mt-10 flex flex-col lg:flex-row items-center justify-center">
+                className="main_container overflow-hidden h-full lg:h-screen w-full px-5 lg:pl-48 lg:pt-10 mt-28 lg:mt-10 flex flex-col lg:flex-row items-center justify-center">
                 <motion.div
                     initial={{ opacity: 0, x: -100 }}
                     animate={{ opacity: 1, x: 0 }}
