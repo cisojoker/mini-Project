@@ -34,7 +34,7 @@ const Waitlist = () => {
                     <Image src='/assets/fomo.svg' width={500} height={500} alt='fomo' />
                 </div>
                 <form className='flex flex-col w-full  lg:w-1/2 space-y-8' action="">
-                    <p className=' font-jost text-2xl lg:text-4xl'>Don&apos;t miss out on the <span className=' text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-violet-500'>future of video search</span> - join our waitlist today and be the first to experience the power of AI!</p>
+                    <p className=' font-jost text-center lg:text-left text-2xl lg:text-4xl'>Don&apos;t miss out on the <span className=' text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-violet-500'>future of video search</span> - join our waitlist today and be the first to experience the power of AI!</p>
                     <motion.input
                         whileFocus={{ y: -2, scale: 1.05, boxShadow: '0 0 10px rgba(255,255,255,0.1)' }}
                         required className='p-4 rounded-lg w-full outline-none bg-[rgba(255,255,255,0.2)] border border-[rgba(255,255,255,0.2)]' type="text" name="name" id="name" placeholder='Enter you name' />
