@@ -6,7 +6,7 @@ import { useInView } from 'react-intersection-observer';
 const Waitlist = () => {
 
     const [ref, inView] = useInView({
-        threshold: 0.4, // trigger animation when the element is 50% in view
+        threshold: 0.5, // trigger animation when the element is 50% in view
         triggerOnce: true, // only trigger once
     });
 

@@ -1,10 +1,13 @@
+import ComingSoon from '@/components/Layout/ComingSoon'
 import React from 'react'
 
 const video = () => {
   return (
-    <div>
-      videos will appear here
-    </div>
+    <>
+      <div className="comingsoon h-screen flex items-center justify-center">
+        <ComingSoon />
+      </div>
+    </>
   )
 }
 
