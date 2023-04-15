@@ -1,4 +1,5 @@
 import Contact from '@/components/Layout/Contact'
+import Transition from '@/components/Layout/Transition'
 import Head from 'next/head'
 import React from 'react'
 
@@ -8,6 +9,7 @@ const contact = () => {
       <Head>
         <title>Contact | ClipSurf</title>
       </Head>
+      <Transition />
       <Contact />
     </>
   )

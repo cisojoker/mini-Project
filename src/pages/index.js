@@ -2,6 +2,7 @@ import Image from 'next/image'
 import Hero from '@/components/Content/Hero'
 import Description from '@/components/Description/Description'
 import Head from 'next/head'
+import Transition from '@/components/Layout/Transition'
 
 export default function Home() {
   return (
@@ -9,6 +10,7 @@ export default function Home() {
       <Head>
         <title>Home | ClipSurf</title>
       </Head>
+      <Transition />
       <Hero />
       <Description />
     </>
