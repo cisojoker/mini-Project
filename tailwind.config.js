@@ -16,10 +16,16 @@ module.exports = {
           '0%': { transform: 'translateY(0)' },
           '50%': { transform: 'translateY(10px)' },
           '100%': { transform: 'translateY(0)' },
+        },
+        alert: {
+          '0%': { transform: 'translateY(0)' },
+          '50%': { transform: 'translateY(12rem)' },
+          '100%': { transform: 'translateY(11rem)' },
         }
       },
       animation: {
-        'up-down': 'up-down 1s ease-in-out infinite'
+        'up-down': 'up-down 1s ease-in-out infinite',
+        'alert': 'alert 1s ease-in-out',
       }
     },
   },

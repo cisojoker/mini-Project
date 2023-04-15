@@ -19,7 +19,7 @@ const Navbar = () => {
             <motion.nav
                 initial={{ y: -100 }}
                 animate={{ y: 0 }}
-                className='z-50 text-white font-jost fixed top-0 left-0 right-0 bg-black flex justify-between items-center px-5 md:px-10 py-4'>
+                className='z-20 text-white font-jost fixed top-0 left-0 right-0 bg-black flex justify-between items-center px-5 md:px-10 py-4'>
                 <div className="left w-1/4 lg:w-full ">
                     <Link href='/'>
                         <h1 className={`logo font-roboto font-extrabold text-2xl`}>Clip<span className='text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-violet-500'>Surf</span> </h1>
