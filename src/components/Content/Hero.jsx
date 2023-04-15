@@ -11,12 +11,12 @@ const Hero = () => {
     return (
         <>
             <motion.div
-                className="main_container overflow-hidden h-full lg:h-screen w-full px-5 lg:pl-48 lg:pt-10 mt-28 lg:mt-10 flex flex-col lg:flex-row items-center justify-center">
+                className="main_container overflow-hidden h-full lg:h-screen w-full px-5 lg:pl-48 mt-10 lg:mt-0 flex flex-col lg:flex-row items-center justify-center">
                 <motion.div
                     initial={{ opacity: 0, x: -100 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 1.2, delay: 0.4 }}
-                    className={`content order-2 lg:order-1 text-center lg:text-left  font-jost text-white lg:w-1/2`}>
+                    className={`content order-2 lg:order-1 text-center lg:text-left mt-12 lg:mt-32 font-jost text-white lg:w-1/2`}>
                     {/* <span className={`text-4xl  md:text-4xl font-bold`}>Find the</span>
                     <span className={`text-7xl  md:text-8xl font-bold`}> perfect video answers</span>
                     <span className={`text-4xl  md:text-4xl font-bold`}> in seconds - experience the</span> */}
@@ -31,11 +31,11 @@ const Hero = () => {
                     initial={{ opacity: 0, x: 100 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 1.2, delay: 0.4 }}
-                    className="image order-1 h-[30rem] w-[30rem] lg:h-full lg:order-2 lg:w-1/2">
-                    <Image className='w-full' src='/assets/hero.png' width={500} height={500} alt='hero_girl' />
+                    className="image order-1 lg:pl-24 -mt-4 lg:order-2 lg:w-1/2">
+                    <Image className='lg:w-[25rem] lg:h-[43rem]' src='/assets/Hero.png' width={500} height={500} alt='hero_girl' />
                 </motion.div>
             </motion.div>
-            <div className="scroll hidden lg:block absolute -mt-16 md:-mt-4 lg:-mt-32 animate-bounce cursor-pointer left-[47%] md:left-1/2 rounded-full border border-[rgba(255,255,255,0.4)]">
+            <div className="scroll hidden lg:block absolute -mt-16 md:-mt-4 lg:-mt-20 animate-bounce cursor-pointer left-[47%] md:left-1/2 rounded-full border border-[rgba(255,255,255,0.4)]">
                 <Link to='description' smooth={true} duration={500} >
                     <FontAwesomeIcon className='text-white text-xl font-light px-3 py-4' icon={faArrowDown} />
                 </Link>

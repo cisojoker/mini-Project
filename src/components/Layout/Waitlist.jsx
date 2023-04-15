@@ -100,7 +100,7 @@ const Waitlist = () => {
                 animate={inView ? "visible" : "hidden"}
                 id='waitlist' className="container rounded-xl space-y-5 lg:space-x-6 bg-[rgba(255,255,255,0.2)] lg:mx-auto lg:w-3/4 p-10 my-10 text-white flex flex-col lg:flex-row items-center justify-center">
                 <div className="fomo">
-                    <Image src='/assets/fomo.svg' width={500} height={500} alt='fomo' />
+                    <Image src='/assets/waitlist.png' width={500} height={500} alt='fomo' />
                 </div>
                 <form className='flex flex-col w-full  lg:w-1/2 space-y-8' action="">
                     <p className=' font-jost text-center lg:text-left text-2xl lg:text-4xl'>Don&apos;t miss out on the <span className=' text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-violet-500'>future of video search</span> - join our waitlist today and be the first to experience the power of AI!</p>

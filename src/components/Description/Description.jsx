@@ -58,7 +58,7 @@ const Description = () => {
                             animate={inView1 ? "visible" : "hidden"}
                             className="text order-2 lg:order-1 text-center lg:text-left font-jost text-white space-y-8 mt-12 lg:w-1/2">
                             <p className='relative text-5xl lg:text-7xl'>
-                                <span className="before:block before:absolute before:-inset-1 before:-skew-y-3 before:bg-pink-500 relative inline-block">
+                                <span className="before:block before:absolute before:-inset-1 before:-skew-y-3 before:bg-[#E74A9F] relative inline-block">
                                     <span className="relative text-white">Short videos</span>
                                 </span>
                                 <span className='relative'> on any topic</span>
@@ -73,8 +73,8 @@ const Description = () => {
                             initial="hidden"
                             animate={inView1 ? "visible" : "hidden"}
                             className="img mt-10 lg:mt-0 order-1 lg:order-2 relative">
-                            <Image className='relative animate-up-down' src='/assets/search-Easy.png' width={500} height={500} alt='searchEasy' />
-                            <Image className='absolute top-20 -z-10' src='/assets/blob.svg' width={500} height={500} alt='searchEasy' />
+                            <Image className='relative animate-up-down' src='/assets/easySearch.png' width={500} height={500} alt='searchEasy' />
+                            {/* <Image className='absolute top-20 -z-10' src='/assets/blob.svg' width={500} height={500} alt='searchEasy' /> */}
                         </motion.div>
                     </div>
                     <div className="list2 overflow-hidden w-full flex flex-col lg:flex-row items-center justify-center">
@@ -83,9 +83,9 @@ const Description = () => {
                             variants={listVariants2}
                             initial="hidden"
                             animate={inView2 ? "visible" : "hidden"}
-                            className="text order-2 text-center lg:text-left  font-jost text-white space-y-8 mt-12 lg:w-1/2">
+                            className="text order-2 text-center lg:text-left lg:ml-14 font-jost text-white space-y-8 mt-12 lg:w-1/2">
                             <p className='relative text-5xl lg:text-7xl'>
-                                <span className="before:block before:absolute before:-inset-1 before:-skew-y-3 before:bg-[#FF8D44] relative inline-block">
+                                <span className="before:block before:absolute before:-inset-1 before:-skew-y-3 before:bg-[#E74A9F] relative inline-block">
                                     <span className="relative text-white">User-friendly</span>
                                 </span>
                                 <span className='relative'> interface</span>
@@ -101,7 +101,7 @@ const Description = () => {
                             animate={inView2 ? "visible" : "hidden"}
                             className="img order-1 relative">
                             {/* <Image className='relative animate-up-down' src='/assets/userFriendly.png' width={500} height={500} alt='searchEasy' /> */}
-                            <img className='relative animate-up-down lg:mr-10' src='/assets/user-Friendly.png' width={500} height={500} alt='searchEasy' />
+                            <Image className='relative animate-up-down lg:mr-10' src='/assets/UserFriendly.png' width={500} height={500} alt='searchEasy' />
                         </motion.div>
                     </div>
                     <div className="list3 overflow-hidden w-full flex flex-col lg:flex-row items-center justify-center">
@@ -112,7 +112,7 @@ const Description = () => {
                             animate={inView3 ? "visible" : "hidden"}
                             className="text order-2 lg:order-1 text-center lg:text-left font-jost text-white space-y-8 mt-12 lg:w-1/2">
                             <p className='relative text-5xl lg:text-7xl'>
-                                <span className="before:block before:absolute before:-inset-1 before:-skew-y-3 before:bg-[#74B687] relative inline-block">
+                                <span className="before:block before:absolute before:-inset-1 before:-skew-y-3 before:bg-[#E74A9F] relative inline-block">
                                     <span className="relative text-white">Advanced</span>
                                 </span>
                                 <span className='relative'> video search</span>
@@ -127,7 +127,7 @@ const Description = () => {
                             initial="hidden"
                             animate={inView3 ? "visible" : "hidden"}
                             className="img order-1 lg:order-2 relative">
-                            <Image className='relative animate-up-down' src='/assets/advanced.svg' width={500} height={500} alt='searchEasy' />
+                            <Image className='relative animate-up-down' src='/assets/advancedSearch.png' width={500} height={500} alt='searchEasy' />
                         </motion.div>
                     </div>
 
