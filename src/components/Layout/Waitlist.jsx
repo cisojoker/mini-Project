@@ -8,6 +8,7 @@ const Waitlist = () => {
 
     const [credentials, setCredentials] = useState({ name: '', email: '' });
     const [alert, setAlert] = useState(null);
+    const [loader, setLoader] = useState(false);
     const [ref, inView] = useInView({
         threshold: 0.5, // trigger animation when the element is 50% in view
         triggerOnce: true, // only trigger once
@@ -36,10 +37,16 @@ const Waitlist = () => {
         return nameParts[0];
     }
 
+    function isValidEmail(email) {
+        // regular expression pattern for email validation
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return emailPattern.test(email);
+    }
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         console.log(credentials);
+        setLoader(true);
         const response = await fetch(`https://clipsurf.onrender.com/${credentials.email}&${getFirstName(credentials.name)}`, {
             method: 'GET',
             headers: {
@@ -48,23 +55,40 @@ const Waitlist = () => {
         })
         setCredentials({ name: '', email: '' });
         const json = await response.json()
-        console.log(json)
-        if(json.status==='success'){
+        console.log(json);
+        if (json.status === 'success') {
             showAlert('success', 'You have been added to the waitlist!')
-        }else{
+        } else {
             showAlert('failure', 'Something went wrong. Please try again.')
+        }
+        setLoader(false);
+    }
+
+    const managehandleSubmit = (e) => {
+        e.preventDefault();
+        if (credentials.name === '' || credentials.email === '') {
+            showAlert('failure', 'Please fill in all the fields.')
+        }
+        else if (credentials.name.length < 3) {
+            showAlert('failure', 'Please enter a valid name.')
+        }
+        else if (!isValidEmail(credentials.email)) {
+            showAlert('failure', 'Please enter a valid email address.')
+        }
+        else {
+            handleSubmit(e);
         }
     }
 
     const showAlert = (type, message) => {
         setAlert({
-          type: type,
-          msg: message,
+            type: type,
+            msg: message,
         })
         setTimeout(() => {
-          setAlert(null)
+            setAlert(null)
         }, 3000);
-      }
+    }
 
     return (
         <>
@@ -88,10 +112,11 @@ const Waitlist = () => {
                         required onChange={onChange} value={credentials.email} className='p-4 rounded-lg w-full outline-none bg-[rgba(255,255,255,0.2)] border border-[rgba(255,255,255,0.2)]' type="email" name="email" id="email" placeholder='Enter your email' />
                     <motion.button
                         title='Submit'
-                        onClick={handleSubmit}
+                        onClick={managehandleSubmit}
                         whileHover={{ y: -3, scale: 1.05, boxShadow: '0 0 10px rgba(255,255,255,0.2)' }}
-                        className={`overflow-hidden border border-[rgba(255,255,255,0.4)] before:-translate-x-[40rem] hover:before:translate-x-0 before:block before:absolute before:-inset-3 before:skew-x-[30deg] relative inline-block before:bg-gradient-to-r from-pink-500 to-violet-500 text-white py-2 px-4 rounded-md before:transition-all before:duration-500`}>
-                        <span className={`relative font-roboto text-lg transition-all duration-500`}>Submit</span>
+                        className={`overflow-hidden h-12 flex items-center justify-center border border-[rgba(255,255,255,0.4)] before:-translate-x-[40rem] hover:before:translate-x-0 before:block before:absolute before:-inset-3 before:skew-x-[30deg] relative before:bg-gradient-to-r from-pink-500 to-violet-500 text-white py-2 px-4 rounded-md before:transition-all before:duration-500`}>
+                        {loader && <Image className='relative mr-2 h-10 w-10' src='https://samherbert.net/svg-loaders/svg-loaders/three-dots.svg' width={500} height={500} alt='clip' />}
+                        {!loader && <span className={`relative font-roboto text-lg transition-all duration-500`}>Submit</span>}
                     </motion.button>
                 </form>
             </motion.div>
