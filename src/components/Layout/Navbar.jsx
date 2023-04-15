@@ -27,10 +27,18 @@ const Navbar = () => {
                 </div>
                 <div className="center lg:w-full hidden lg:block">
                     <ul className='flex items-center justify-center space-x-6 text-xl'>
-                        <li className={`hover:bg-[rgba(255,255,255,0.2)] ${router.pathname == '/' ? 'bg-[rgba(255,255,255,0.2)]' : ''}  p-1 px-4 rounded-md transition-all duration-300 cursor-pointer`}><Link href='/'>Home</Link></li>
-                        <li className={`hover:bg-[rgba(255,255,255,0.2)] ${router.pathname == '/video' ? 'bg-[rgba(255,255,255,0.2)]' : ''} p-1 px-4 rounded-md transition-all duration-300 cursor-pointer`}><Link href='/video'>Videos</Link></li>
-                        <li className={`hover:bg-[rgba(255,255,255,0.2)] ${router.pathname == '/about' ? 'bg-[rgba(255,255,255,0.2)]' : ''} p-1 px-4 rounded-md transition-all duration-300 cursor-pointer`}><Link href='/about'>About</Link></li>
-                        <li className={`hover:bg-[rgba(255,255,255,0.2)] ${router.pathname == '/contact' ? 'bg-[rgba(255,255,255,0.2)]' : ''} p-1 px-4 rounded-md transition-all duration-300 cursor-pointer`}><Link href='/contact'>Contact Us</Link></li>
+                        <Link href='/'>
+                            <li className={`hover:bg-[rgba(255,255,255,0.2)] ${router.pathname == '/' ? 'bg-[rgba(255,255,255,0.2)]' : ''}  p-1 px-4 rounded-md transition-all duration-300 cursor-pointer`}>Home</li>
+                        </Link>
+                        <Link href='/video'>
+                            <li className={`hover:bg-[rgba(255,255,255,0.2)] ${router.pathname == '/video' ? 'bg-[rgba(255,255,255,0.2)]' : ''} p-1 px-4 rounded-md transition-all duration-300 cursor-pointer`}>Videos</li>
+                        </Link>
+                        <Link href='/about'>
+                            <li className={`hover:bg-[rgba(255,255,255,0.2)] ${router.pathname == '/about' ? 'bg-[rgba(255,255,255,0.2)]' : ''} p-1 px-4 rounded-md transition-all duration-300 cursor-pointer`}>About</li>
+                        </Link>
+                        <Link href='/contact'>
+                            <li className={`hover:bg-[rgba(255,255,255,0.2)] ${router.pathname == '/contact' ? 'bg-[rgba(255,255,255,0.2)]' : ''} p-1 px-4 rounded-md transition-all duration-300 cursor-pointer`}>Contact Us</li>
+                        </Link>
                     </ul>
                 </div>
                 <div className="right w-3/4 lg:w-full flex justify-end">

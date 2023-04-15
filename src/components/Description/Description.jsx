@@ -44,13 +44,13 @@ const Description = () => {
 
     return (
         <>
-            <div id='description' className="container py-12 lg:pt-24 px-7 lg:px-0 lg:mx-auto">
+            <div id='description' className="container py-12 lg:pt-24 px-7 lg:pl-48 ">
                 <div className="features flex items-center justify-cente">
-                    <h1 className='text-7xl  lg:text-8xl text-center lg:text-left  font-jost font-bold text-white lg:ml-20'>Features</h1>
+                    <h1 className='text-7xl  lg:text-8xl text-center lg:text-left  font-jost font-bold text-white'>Features</h1>
                     <span className='h-[0.1rem] ml-4 w-full lg:w-[60%] mt-3 bg-white block'></span>
                 </div>
                 <div className="description flex flex-col space-y-10">
-                    <div className="list1 overflow-hidden w-full flex flex-col lg:flex-row items-center justify-center">
+                    <div className="list1 overflow-hidden w-full flex flex-col lg:flex-row items-center">
                         <motion.div
                             ref={ref1}
                             variants={listVariants1}
@@ -77,7 +77,7 @@ const Description = () => {
                             {/* <Image className='absolute top-20 -z-10' src='/assets/blob.svg' width={500} height={500} alt='searchEasy' /> */}
                         </motion.div>
                     </div>
-                    <div className="list2 overflow-hidden w-full flex flex-col lg:flex-row items-center justify-center">
+                    <div className="list2 overflow-hidden w-full flex flex-col lg:flex-row items-center">
                         <motion.div
                             ref={ref2}
                             variants={listVariants2}
@@ -104,7 +104,7 @@ const Description = () => {
                             <Image className='relative animate-up-down lg:mr-10' src='/assets/UserFriendly.png' width={500} height={500} alt='searchEasy' />
                         </motion.div>
                     </div>
-                    <div className="list3 overflow-hidden w-full flex flex-col lg:flex-row items-center justify-center">
+                    <div className="list3 overflow-hidden w-full flex flex-col lg:flex-row items-center">
                         <motion.div
                             ref={ref3}
                             variants={listVariants1}

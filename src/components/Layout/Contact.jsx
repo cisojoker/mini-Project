@@ -15,7 +15,7 @@ const Contact = () => {
                 </div>
                 <div className="form p-6 lg:p-0 lg:w-1/2">
                     <h1 className='text-2xl font-bold font-jost'>Got a
-                        <span className='ml-2 before:block before:absolute before:-inset-1 before:-skew-y-3 before:bg-orange-400 relative inline-block'>
+                        <span className='ml-2 before:block before:absolute before:-inset-1 before:-skew-y-3 before:bg-[#E74A9F] relative inline-block'>
                             <span className='relative text-white text-6xl font-bold'>Project</span>
                         </span>
                     </h1>
@@ -23,7 +23,7 @@ const Contact = () => {
                         <input required className={`outline-none transition-all duration-300 border-slate-400 drop-shadow-sm border-2 rounded-xl p-4`} type="text" placeholder='Enter Full Name*' name="clientname" id="clientname" />
                         <input required className={`outline-none transition-all duration-300 border-slate-400 drop-shadow-sm border-2 rounded-xl p-4`} type="email" placeholder='Enter Email Address' name="email" id="email" />
                         <textarea required className={` transition-all duration-300 outline-none border-slate-400 drop-shadow-sm border-2 rounded-xl p-4`} name="message" id="" placeholder='Tell Us Something About Your Project' cols="30" rows="4"></textarea>
-                        <input type='submit' value='Contact Us' className={`bg-orange-400 p-3 w-fit cursor-pointer rounded-sm transition-all duration-300 hover:-translate-y-1`} />
+                        <input type='submit' value='Contact Us' className={`bg-[#E74A9F] text-white p-3 w-fit cursor-pointer rounded-sm transition-all duration-300 hover:-translate-y-1`} />
                         <input type="hidden" name="_next" value="https://clip-surf.vercel.app/" />
                         <input type="hidden" name="_captcha" value="false"></input>
                     </form>
