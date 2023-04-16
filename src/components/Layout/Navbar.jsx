@@ -44,13 +44,13 @@ const Navbar = () => {
                 <div className="right w-3/4 lg:w-full flex justify-end">
                     <Button content='Join the waitlist!' destination='waitlist' />
                 </div>
-                <div className="hamburger -mr-2 ml-2 lg:hidden space-y-1">
+                <div className="hamburger relative -mr-2 ml-2 lg:hidden space-y-1">
                     <div onClick={expandNav} className={`${navExpand ? '-rotate-45 translate-y-[0.45rem]' : ''} w-6 transition-all duration-300 rounded-full bg-white h-1`}></div>
                     <div onClick={expandNav} className={`${navExpand ? 'scale-0' : ''} w-6 transition-all duration-300 rounded-full bg-white h-1`}></div>
                     <div onClick={expandNav} className={`${navExpand ? 'rotate-45 -translate-y-2' : ''} w-6 transition-all duration-300 rounded-full bg-white h-1`}></div>
                 </div>
             </motion.nav >
-            <div className={`expanded lg:hidden w-full text-white z-40 h-screen flex items-center justify-center backdrop-blur-3xl fixed top-0 transition-all duration-500 ${navExpand ? '' : 'translate-x-[60rem]'}`}>
+            <div className={`expanded lg:hidden w-full text-white z-[15] h-screen flex items-center justify-center backdrop-blur-3xl fixed top-0 transition-all duration-500 ${navExpand ? '' : 'translate-x-[60rem]'}`}>
                 <ul className={`flex text-2xl space-y-4 flex-col justify-center font-jost text-center items-center`}>
                     <li onClick={expandNav} className='cursor-pointer'><Link href='/'>Home</Link></li>
                     <li onClick={expandNav} className='cursor-pointer'><Link href='/video'>Videos</Link></li>
