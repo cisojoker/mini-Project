@@ -91,7 +91,7 @@ const Description = () => {
                                 <span className='relative'> interface</span>
                             </p>
                             <p className=' text-3xl lg:text-4xl '>
-                                Easy-to-use interface allows you to quickly browse & find the videos you need
+                                Easy-to-use interface allows you to quickly browse & find the videos you need.
                             </p>
                         </motion.div>
                         <motion.div
