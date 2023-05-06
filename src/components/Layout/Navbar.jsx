@@ -3,6 +3,7 @@ import Button from './Button'
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 import { motion } from "framer-motion"
+import { SignedIn, SignedOut, UserButton } from '@clerk/nextjs';
 
 const Navbar = () => {
 
@@ -42,7 +43,13 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <div className="right w-3/4 lg:w-full flex justify-end">
-                    <Button content='Join the waitlist!' destination='waitlist' />
+                    <SignedIn>
+                        <UserButton />
+                    </SignedIn>
+                    <SignedOut>
+                        <Button content='Sign Up' destination="/sign-up" />
+                        <Button content='Sign In' destination="/sign-in" />
+                    </SignedOut>
                 </div>
                 <div className="hamburger relative -mr-2 ml-2 lg:hidden space-y-1">
                     <div onClick={expandNav} className={`${navExpand ? '-rotate-45 translate-y-[0.45rem]' : ''} w-6 transition-all duration-300 rounded-full bg-white h-1`}></div>

@@ -1,8 +1,17 @@
 import Image from 'next/image'
 import React from 'react'
 import { motion } from 'framer-motion';
+import { useRouter } from 'next/router';
+import { useUser } from '@clerk/nextjs';
 
 const ComingSoon = () => {
+
+    const router = useRouter()
+    const { isLoaded, isSignedIn } = useUser()
+    if (isLoaded && !isSignedIn) {
+        router.push('/sign-in')
+    }
+
     return (
         <>
             <motion.div
