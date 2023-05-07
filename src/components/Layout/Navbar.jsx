@@ -44,7 +44,15 @@ const Navbar = () => {
                 </div>
                 <div className="right w-3/4 lg:w-full flex justify-end">
                     <SignedIn>
-                        <UserButton />
+                        <div className='pr-2 lg:pr-0'>
+                            <UserButton
+                                appearance={{
+                                    elements: {
+                                        userButtonPopoverCard: 'w-3/4 lg:w-1/4'
+                                    }
+                                }}
+                            />
+                        </div>
                     </SignedIn>
                     <SignedOut>
                         <Button content='Sign Up' destination="/sign-up" />

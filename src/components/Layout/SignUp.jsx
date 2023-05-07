@@ -23,7 +23,7 @@ const Signup = () => {
                     <SignUp
                         appearance={{
                             elements: {
-                                rootBox: '',
+                                logoBox: 'hidden',
                                 card: " bg-[rgba(255,255,255,0.2)] border border-[rgba(255,255,255,0.1)]",
                                 formButtonPrimary: 'border-2 border-white hover:-translate-y-1 transition-all duration-500 overflow-hidden hover:bg-transparent bg-transparent h-12 flex items-center justify-center before:-translate-x-[40rem] before:-z-10 hover:before:translate-x-0 before:block before:absolute before:-inset-3 before:skew-x-[30deg] relative before:bg-gradient-to-r from-pink-500 to-violet-500 text-white py-2 px-4 rounded-md before:transition-all before:duration-500',
                                 headerTitle: 'text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-violet-500',

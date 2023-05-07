@@ -16,7 +16,7 @@ const Hero = () => {
                     initial={{ opacity: 0, x: -100 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 1.2, delay: 0.4 }}
-                    className={`content order-2 lg:order-1 text-center lg:text-left mt-12 lg:mt-32 font-jost text-white lg:w-1/2`}>
+                    className={`content order-2 lg:order-1 text-center lg:text-left mt-12 lg:mt-20 font-jost text-white lg:w-1/2`}>
                     {/* <span className={`text-4xl  md:text-4xl font-bold`}>Find the</span>
                     <span className={`text-7xl  md:text-8xl font-bold`}> perfect video answers</span>
                     <span className={`text-4xl  md:text-4xl font-bold`}> in seconds - experience the</span> */}
@@ -24,7 +24,7 @@ const Hero = () => {
                     <span className={`text-4xl  md:text-4xl font-bold`}> with our</span>
                     <span className={`text-7xl  md:text-8xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-violet-500`}> AI-powered search engine!</span>
                     <div className="button my-8">
-                        <Button content="Join the waitlist!" destination='waitlist' />
+                        <Button content="Start Searching!" destination='/video' />
                     </div>
                 </motion.div>
                 <motion.div

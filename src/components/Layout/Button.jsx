@@ -3,7 +3,6 @@ import { motion } from 'framer-motion';
 import Link from 'next/link';
 
 const Button = (props) => {
-    console.log(props.destination)
     return (
         <>
             <Link href={props.destination}>
