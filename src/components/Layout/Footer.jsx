@@ -1,7 +1,6 @@
 import { faTwitter } from '@fortawesome/free-brands-svg-icons'
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 
@@ -9,8 +8,8 @@ const Footer = () => {
     return (
         <>
             {/* <Image className='w-full' src='/assets/footer2.svg' width={200} height={200} alt='logo' /> */}
-            <div className='bg-[rgba(255,255,255,0.2)] font-jost flex flex-col lg:flex-row w-full px-4 lg:px-40 pt-10 lg:pt-20 pb-8'>
-                <div className="first lg:w-1/2">
+            <div className='bg-[rgba(255,255,255,0.2)] font-jost flex flex-col md:flex-row w-full px-4 md:px-14 lg:px-40 pt-10 lg:pt-20 pb-8'>
+                <div className="first md:w-1/2">
                     <h1 className={`logo text-white font-jost font-extrabold text-6xl`}>Clip<span className='text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-violet-500'>Surf</span> </h1>
                     <p className='text-white text-lg my-4'>
                         <span className='font-bold'>ClipSurf</span> is an AI-based search engine that fetches short videos from different platforms. Our mission is to help users find and discover the best short-form video content on the web.
@@ -23,7 +22,7 @@ const Footer = () => {
                         </Link>
                     </div>
                 </div>
-                <div className="second text-white mt-10 lg:mt-0 text-xl lg:w-1/2 flex flex-col lg:items-center">
+                <div className="second text-white mt-10 lg:mt-0 text-xl md:w-1/2 flex flex-col md:items-center">
                     <div>
                         <h1 className=' text-4xl pb-4 text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-violet-500'>Developers</h1>
                         <p className='hover:bg-gradient-to-r hover:from-pink-500 hover:to-violet-500  hover:text-transparent hover:bg-clip-text text-white cursor-pointer transition-all duration-300'>
@@ -50,7 +49,7 @@ const Footer = () => {
                     </div>
                 </div>
             </div>
-            <div className="copyright px-4 pb-5 lg:pb-1 bg-[rgba(255,255,255,0.2)]">
+            <div className="copyright px-4 md:px-14 pb-5 lg:pb-1 bg-[rgba(255,255,255,0.2)]">
                 <p className='lg:text-center text-white pb-2'>© {new Date().getFullYear()} ClipSurf. All rights reserved.</p>
             </div>
         </>

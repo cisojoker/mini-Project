@@ -1,4 +1,5 @@
-import ComingSoon from '@/components/Layout/ComingSoon'
+import Search from '@/components/Content/Search'
+import Videos from '@/components/Content/Videos'
 import Transition from '@/components/Layout/Transition'
 import Head from 'next/head'
 import React from 'react'
@@ -10,8 +11,9 @@ const video = () => {
         <title>Videos | ClipSurf</title>
       </Head>
       <Transition />
-      <div className="comingsoon h-screen flex items-center justify-center">
-        <ComingSoon />
+      <div className="">
+        <Search />
+        <Videos />
       </div>
     </>
   )

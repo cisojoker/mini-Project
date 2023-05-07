@@ -67,6 +67,7 @@ const Navbar = () => {
             </motion.nav >
             <div className={`expanded lg:hidden w-full text-white z-[15] h-screen flex items-center justify-center backdrop-blur-3xl fixed top-0 transition-all duration-500 ${navExpand ? '' : 'translate-x-[60rem]'}`}>
                 <ul className={`flex text-2xl space-y-4 flex-col justify-center font-jost text-center items-center`}>
+                    <li className={`logo font-jost my-4 font-extrabold text-5xl`}>Clip<span className='text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-violet-500'>Surf</span> </li>
                     <li onClick={expandNav} className='cursor-pointer'><Link href='/'>Home</Link></li>
                     <li onClick={expandNav} className='cursor-pointer'><Link href='/video'>Videos</Link></li>
                     <li onClick={expandNav} className='cursor-pointer'><Link href='/about'>About</Link></li>
