@@ -34,8 +34,8 @@ const Navbar = () => {
                         <Link href='/video'>
                             <li className={`hover:bg-[rgba(255,255,255,0.2)] ${router.pathname == '/video' ? 'bg-[rgba(255,255,255,0.2)]' : ''} p-1 px-4 rounded-md transition-all duration-300 cursor-pointer`}>Videos</li>
                         </Link>
-                        <Link href='/about'>
-                            <li className={`hover:bg-[rgba(255,255,255,0.2)] ${router.pathname == '/about' ? 'bg-[rgba(255,255,255,0.2)]' : ''} p-1 px-4 rounded-md transition-all duration-300 cursor-pointer`}>About</li>
+                        <Link href='/saved'>
+                            <li className={`hover:bg-[rgba(255,255,255,0.2)] ${router.pathname == '/saved' ? 'bg-[rgba(255,255,255,0.2)]' : ''} p-1 px-4 rounded-md transition-all duration-300 cursor-pointer`}>Saved</li>
                         </Link>
                         <Link href='/contact'>
                             <li className={`hover:bg-[rgba(255,255,255,0.2)] ${router.pathname == '/contact' ? 'bg-[rgba(255,255,255,0.2)]' : ''} p-1 px-4 rounded-md transition-all duration-300 cursor-pointer`}>Contact Us</li>
@@ -70,7 +70,7 @@ const Navbar = () => {
                     <li className={`logo font-jost my-4 font-extrabold text-5xl`}>Clip<span className='text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-violet-500'>Surf</span> </li>
                     <li onClick={expandNav} className='cursor-pointer'><Link href='/'>Home</Link></li>
                     <li onClick={expandNav} className='cursor-pointer'><Link href='/video'>Videos</Link></li>
-                    <li onClick={expandNav} className='cursor-pointer'><Link href='/about'>About</Link></li>
+                    <li onClick={expandNav} className='cursor-pointer'><Link href='/saved'>Saved</Link></li>
                     <li onClick={expandNav} className='cursor-pointer'><Link href='/contact'>Contact Us</Link></li>
                 </ul>
             </div>
