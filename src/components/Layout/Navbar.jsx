@@ -13,7 +13,6 @@ const Navbar = () => {
     const expandNav = () => {
         setNavExpand(!navExpand)
     }
-    console.log(router.pathname)
 
     return (
         <>
