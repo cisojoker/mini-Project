@@ -1,15 +1,21 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import VideoItem from './VideoItem';
 import { useRouter } from 'next/router';
 import { useUser } from '@clerk/nextjs';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import Spinner from '../Layout/Spinner';
+import videoContext from '@/context/video/videoContext';
+import loadingContext from '@/context/loading/loadingContext';
+import showVideoContext from '@/context/showVideo/showVideoContext';
 
 const Videos = () => {
-  const [videoList, setVideoList] = useState([]);
-  const [loading, setLoading] = useState(true);
   const [fetchingNumber, setFetchingNumber] = useState(3);
-  const [totalVideos, setTotalVideos] = useState([]);
+  const LoadingContext = useContext(loadingContext);
+  const { loading, setLoading } = LoadingContext;
+  const VideoContext = useContext(videoContext);
+  const { totalVideos, setTotalVideos } = VideoContext;
+  const ShowVideoContext = useContext(showVideoContext);
+  const { videoList, setVideoList } = ShowVideoContext;
 
   const router = useRouter();
   const { isLoaded, isSignedIn } = useUser();
@@ -22,6 +28,7 @@ const Videos = () => {
     };
 
     const getTrendingVideos = async () => {
+      setLoading(true);
       const country = await getCountryCode();
       const response = await fetch(`https://clipsurf-main.onrender.com/api/videos/${country}`, {
         headers: {
@@ -47,7 +54,7 @@ const Videos = () => {
       const newFetchingNumber = currentLength + 3;
       setVideoList(totalVideos.slice(0, newFetchingNumber));
       setFetchingNumber(newFetchingNumber);
-    }, 2000);
+    }, 1000);
   };
 
   return (

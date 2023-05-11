@@ -6,6 +6,10 @@ import '@/styles/globals.css'
 import { config } from '@fortawesome/fontawesome-svg-core'
 import '@fortawesome/fontawesome-svg-core/styles.css'
 import Footer from '@/components/Layout/Footer';
+import QueryState from '@/context/query/QueryState';
+import VideoState from '@/context/video/VideoState';
+import LoadingState from '@/context/loading/LoadingState';
+import ShowVideoState from '@/context/showVideo/ShowVideoState';
 config.autoAddCss = false
 
 export default function App({ Component, pageProps }) {
@@ -13,7 +17,15 @@ export default function App({ Component, pageProps }) {
     <>
       <ClerkProvider {...pageProps}>
         <Navbar />
-        <Component {...pageProps} />
+        <LoadingState>
+          <QueryState>
+            <VideoState>
+              <ShowVideoState>
+                <Component {...pageProps} />
+              </ShowVideoState>
+            </VideoState>
+          </QueryState>
+        </LoadingState>
       </ClerkProvider>
       <Analytics />
       <Footer />
