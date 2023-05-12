@@ -1,13 +1,15 @@
 import Image from 'next/image'
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import Alert from './Alert';
+import alertContext from '@/context/alert/alertContext';
 
 const Waitlist = () => {
 
     const [credentials, setCredentials] = useState({ name: '', email: '' });
-    const [alert, setAlert] = useState(null);
+    const AlertContext = useContext(alertContext);
+    const { showAlert } = AlertContext;
     const [loader, setLoader] = useState(false);
     const [ref, inView] = useInView({
         threshold: 0.5, // trigger animation when the element is 50% in view
@@ -45,7 +47,6 @@ const Waitlist = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log(credentials);
         setLoader(true);
         const response = await fetch(`https://clipsurf.onrender.com/${credentials.email}&${getFirstName(credentials.name)}`, {
             method: 'GET',
@@ -55,7 +56,6 @@ const Waitlist = () => {
         })
         setCredentials({ name: '', email: '' });
         const json = await response.json()
-        console.log(json);
         if (json.status === 'success') {
             showAlert('success', 'You have been added to the waitlist!')
         } else {
@@ -80,19 +80,9 @@ const Waitlist = () => {
         }
     }
 
-    const showAlert = (type, message) => {
-        setAlert({
-            type: type,
-            msg: message,
-        })
-        setTimeout(() => {
-            setAlert(null)
-        }, 3000);
-    }
-
     return (
         <>
-            <Alert alert={alert} />
+            <Alert />
             <motion.div
                 ref={ref}
                 variants={listVariants}

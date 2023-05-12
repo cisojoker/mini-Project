@@ -10,7 +10,7 @@ const saved = () => {
         <title>Saved | ClipSurf</title>
       </Head>
       <Transition />
-      <div className="nothing h-screen flex items-center justify-center">
+      <div className="nothing">
         <Saved />
       </div>
     </>

@@ -1,9 +1,46 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { motion } from 'framer-motion'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faHeart } from '@fortawesome/free-solid-svg-icons'
+import { faHeart, faHeartBroken } from '@fortawesome/free-solid-svg-icons'
+import { useUser } from '@clerk/nextjs'
+import savedContext from '@/context/saved/savedContext'
+import alertContext from '@/context/alert/alertContext'
 
 const VideoItem = (props) => {
+
+    const { user } = useUser()
+    const SavedContext = useContext(savedContext)
+    const { saved, setSaved } = SavedContext
+    const AlertContext = useContext(alertContext)
+    const { showAlert } = AlertContext
+
+    const handleLike = async (ID) => {
+        const response = await fetch(`https://clipsurf-main.onrender.com/api/liked/${user.primaryEmailAddress.emailAddress}/${ID}`, {
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        })
+        const json = await response.json();
+        showAlert(json.status, 'Video added to your liked videos!')
+        console.log(ID)
+        console.log(json.status)
+        if (saved.length == 0) {
+            await fetchSavedVideos()
+        }
+    }
+
+    const fetchSavedVideos = async () => {
+        const response = await fetch(`https://clipsurf-main.onrender.com/api/saved/${user.primaryEmailAddress.emailAddress}`, {
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        })
+        const json = await response.json();
+        setSaved(json.data)
+        console.log(saved)
+        console.log(json.data)
+    }
+
     return (
         <>
             <motion.div
@@ -12,9 +49,15 @@ const VideoItem = (props) => {
                 transition={{ duration: 0.2 }}
                 className="videoItem rounded-xl p-2 -my-4 lg:-my-3 w-full md:w-1/2 lg:w-1/3">
                 <iframe className='rounded-xl bg-[rgba(255,255,255,0.2)] p-2 w-full shadow-2xl shadow-black' width="350" height="300" src={`https://www.youtube.com/embed/${props.ID}`} allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
-                <button className='bg-black border border-[rgba(255,255,255,0.2)] p-1 px-2 rounded-lg relative bottom-16 left-4'>
-                    <FontAwesomeIcon className='text-white cursor-pointer hover:text-red-500 hover:scale-125 duration-300 transition-all' title='Save' icon={faHeart} />
-                </button>
+                {
+                    saved.includes(props.ID) ?
+                        <button onClick={() => { handleLike(props.ID) }} className='bg-black border border-[rgba(255,255,255,0.2)] p-1 px-2 rounded-lg relative bottom-16 left-4'>
+                            <FontAwesomeIcon className='text-white cursor-pointer hover:text-red-500 hover:scale-125 duration-300 transition-all' title='Unsave' icon={faHeartBroken} />
+                        </button> :
+                        <button onClick={() => { handleLike(props.ID) }} className='bg-black border border-[rgba(255,255,255,0.2)] p-1 px-2 rounded-lg relative bottom-16 left-4'>
+                            <FontAwesomeIcon className='text-white cursor-pointer hover:text-red-500 hover:scale-125 duration-300 transition-all' title='Save' icon={faHeart} />
+                        </button>
+                }
             </motion.div>
         </>
     )

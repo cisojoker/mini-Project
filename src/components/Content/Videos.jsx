@@ -44,7 +44,9 @@ const Videos = () => {
     if (isLoaded && !isSignedIn) {
       router.push('/sign-in');
     } else {
-      getTrendingVideos();
+      if (totalVideos.length == 0) {
+        getTrendingVideos();
+      }
     }
   }, []);
 
@@ -82,40 +84,3 @@ const Videos = () => {
 };
 
 export default Videos;
-
-
-  // const getTrendingVideos = async () => {
-  //   try {
-  //     const response = await axios.post(
-  //       'https://clipsurfmainbackend-production.up.railway.app/api/search/',
-  //       {
-  //         headers: {
-  //           'Content-Type': 'application/json',
-
-  //         },
-  //       }
-  //     );
-  //     console.log(response);
-  //     return response.data;
-  //   } catch (error) {
-  //     console.error(error);
-  //     return error;
-  //   }
-  // };
-
-  // const getTrendingVideos = async () => {
-  //   const response = await fetch(
-  //     'https://clipsurf-main.onrender.com/api/search/',
-  //     {
-  //       method: 'POST',
-  //       headers: {
-  //         'Content-Type': 'application/json',
-  //       },
-  //       body: JSON.stringify({
-  //         query: 'breaking bad trailer',
-  //       }),
-  //     }
-  //   );
-  //   const data = await response.json();
-  //   console.log(data);
-  // };
