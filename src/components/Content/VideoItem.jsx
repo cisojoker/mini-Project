@@ -15,30 +15,35 @@ const VideoItem = (props) => {
     const { showAlert } = AlertContext
 
     const handleLike = async (ID) => {
-        const response = await fetch(`https://clipsurf-main.onrender.com/api/liked/${user.primaryEmailAddress.emailAddress}/${ID}`, {
+        const response = await fetch(`https://clipsurfmainbackend-production.up.railway.app/api/liked/${user.primaryEmailAddress.emailAddress}/${ID}`, {
             headers: {
                 'Content-Type': 'application/json',
             },
         })
         const json = await response.json();
         showAlert(json.status, 'Video added to your liked videos!')
-        console.log(ID)
-        console.log(json.status)
-        if (saved.length == 0) {
-            await fetchSavedVideos()
-        }
+        await fetchSavedVideos()
+    }
+
+    const handleUnsave = async (ID) => {
+        const response = await fetch(`https://clipsurfmainbackend-production.up.railway.app/api/remove/${user.primaryEmailAddress.emailAddress}/${ID}`, {
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        })
+        const json = await response.json();
+        showAlert(json.status, 'Video removed from your liked videos!')
+        await fetchSavedVideos()
     }
 
     const fetchSavedVideos = async () => {
-        const response = await fetch(`https://clipsurf-main.onrender.com/api/saved/${user.primaryEmailAddress.emailAddress}`, {
+        const response = await fetch(`https://clipsurfmainbackend-production.up.railway.app/api/saved/${user.primaryEmailAddress.emailAddress}`, {
             headers: {
                 'Content-Type': 'application/json',
             },
         })
         const json = await response.json();
         setSaved(json.data)
-        console.log(saved)
-        console.log(json.data)
     }
 
     return (
@@ -51,7 +56,7 @@ const VideoItem = (props) => {
                 <iframe className='rounded-xl bg-[rgba(255,255,255,0.2)] p-2 w-full shadow-2xl shadow-black' width="350" height="300" src={`https://www.youtube.com/embed/${props.ID}`} allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
                 {
                     saved.includes(props.ID) ?
-                        <button onClick={() => { handleLike(props.ID) }} className='bg-black border border-[rgba(255,255,255,0.2)] p-1 px-2 rounded-lg relative bottom-16 left-4'>
+                        <button onClick={() => { handleUnsave(props.ID) }} className='bg-black border border-[rgba(255,255,255,0.2)] p-1 px-2 rounded-lg relative bottom-16 left-4'>
                             <FontAwesomeIcon className='text-white cursor-pointer hover:text-red-500 hover:scale-125 duration-300 transition-all' title='Unsave' icon={faHeartBroken} />
                         </button> :
                         <button onClick={() => { handleLike(props.ID) }} className='bg-black border border-[rgba(255,255,255,0.2)] p-1 px-2 rounded-lg relative bottom-16 left-4'>

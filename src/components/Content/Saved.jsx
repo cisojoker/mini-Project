@@ -12,47 +12,37 @@ import VideoItem from './VideoItem';
 const Saved = () => {
 
     const router = useRouter()
-    const { isLoaded, isSignedIn, user } = useUser()
+    const { isLoaded, isSignedIn, } = useUser()
     if (isLoaded && !isSignedIn) {
         router.push('/sign-in')
     }
 
     const [fetchingNumber, setFetchingNumber] = useState(3);
     const SavedContext = useContext(savedContext)
-    const { saved, setSaved } = SavedContext
+    const { saved, fetchSavedVideos } = SavedContext
     const LoadingContext = useContext(loadingContext);
-    const { loading, setLoading } = LoadingContext;
+    const { loading } = LoadingContext;
     const [showSaved, setShowSaved] = useState([]);
 
     const fetchMoreVideos = () => {
         setTimeout(() => {
             const currentLength = showSaved.length;
             const newFetchingNumber = currentLength + 3;
-            setShowSaved(totalVideos.slice(0, newFetchingNumber));
+            setShowSaved(saved.slice(0, newFetchingNumber));
             setFetchingNumber(newFetchingNumber);
         }, 1000);
     };
 
-    const fetchSavedVideos = async () => {
-        setLoading(true);
-        if (isLoaded) {
-            const emailAddress = user?.primaryEmailAddress?.emailAddress;
-            const response = await fetch(`https://clipsurf-main.onrender.com/api/saved/${emailAddress}`, {
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-            })
-            const json = await response.json();
-            setSaved(json.data)
-            setLoading(false);
-        }
-    }
+    useEffect(() => {
+        setShowSaved(saved.slice(0, fetchingNumber));
+    }, [saved, fetchingNumber]);
 
     useEffect(() => {
-        if (saved.length == 0) {
+
+        if (saved.length === 0) {
             fetchSavedVideos();
         }
-        setShowSaved(saved.slice(0, fetchingNumber));
+
     }, [isLoaded]);
 
 
@@ -62,7 +52,7 @@ const Saved = () => {
                 <div className='my-32'>
                     <Spinner />
                 </div> :
-                (saved.length == 0 ?
+                (saved.length === 0 ?
                     <motion.div
                         initial={{ opacity: 0, y: -100 }}
                         animate={{ opacity: 1, y: 0 }}
@@ -81,7 +71,8 @@ const Saved = () => {
                     >
                         <h1 className='text-white text-4xl lg:text-6xl text-center my-36 font-jost px-2'>Saved Videos</h1>
                         <div className="bg-[rgba(255,255,255,0.2) flex flex-wrap mb-40">
-                            {saved.map((ID) => (
+
+                            {showSaved.map((ID) => (
                                 <VideoItem key={ID} ID={ID} />
                             ))}
                         </div>

@@ -7,6 +7,7 @@ import Spinner from '../Layout/Spinner';
 import videoContext from '@/context/video/videoContext';
 import loadingContext from '@/context/loading/loadingContext';
 import showVideoContext from '@/context/showVideo/showVideoContext';
+import savedContext from '@/context/saved/savedContext';
 
 const Videos = () => {
   const [fetchingNumber, setFetchingNumber] = useState(3);
@@ -16,9 +17,11 @@ const Videos = () => {
   const { totalVideos, setTotalVideos } = VideoContext;
   const ShowVideoContext = useContext(showVideoContext);
   const { videoList, setVideoList } = ShowVideoContext;
+  const SavedContext = useContext(savedContext)
+  const { saved, setSaved } = SavedContext
 
   const router = useRouter();
-  const { isLoaded, isSignedIn } = useUser();
+  const { isLoaded, isSignedIn, user } = useUser();
 
   useEffect(() => {
     const getCountryCode = async () => {
@@ -30,7 +33,7 @@ const Videos = () => {
     const getTrendingVideos = async () => {
       setLoading(true);
       const country = await getCountryCode();
-      const response = await fetch(`https://clipsurf-main.onrender.com/api/videos/${country}`, {
+      const response = await fetch(`https://clipsurfmainbackend-production.up.railway.app/api/videos/${country}`, {
         headers: {
           'Content-Type': 'application/json',
         },
@@ -41,11 +44,34 @@ const Videos = () => {
       setVideoList(json.data.slice(0, fetchingNumber));
     };
 
+    const fetchSavedVideos = async () => {
+      setLoading(true);
+      if (isLoaded) {
+        const emailAddress = user?.primaryEmailAddress?.emailAddress;
+        const response = await fetch(`https://clipsurfmainbackend-production.up.railway.app/api/saved/${emailAddress}`, {
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        })
+        const json = await response.json();
+        if (json.code === 404) {
+          setSaved([])
+        }
+        else {
+          setSaved(json.data)
+        }
+        setLoading(false);
+      }
+    }
+
     if (isLoaded && !isSignedIn) {
       router.push('/sign-in');
     } else {
       if (totalVideos.length == 0) {
         getTrendingVideos();
+      }
+      if (saved.length === 0) {
+        fetchSavedVideos();
       }
     }
   }, []);
