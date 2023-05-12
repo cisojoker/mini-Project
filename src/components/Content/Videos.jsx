@@ -14,55 +14,55 @@ const Videos = () => {
   const LoadingContext = useContext(loadingContext);
   const { loading, setLoading } = LoadingContext;
   const VideoContext = useContext(videoContext);
-  const { totalVideos, setTotalVideos } = VideoContext;
+  const { totalVideos, setTotalVideos, getTrendingVideos } = VideoContext;
   const ShowVideoContext = useContext(showVideoContext);
   const { videoList, setVideoList } = ShowVideoContext;
   const SavedContext = useContext(savedContext)
-  const { saved, setSaved } = SavedContext
+  const { saved, setSaved ,fetchSavedVideos } = SavedContext
 
   const router = useRouter();
-  const { isLoaded, isSignedIn, user } = useUser();
+  const { isLoaded, isSignedIn } = useUser();
 
   useEffect(() => {
-    const getCountryCode = async () => {
-      const response = await fetch('https://ipapi.co/json/');
-      const data = await response.json();
-      return data.country_code;
-    };
+    // const getCountryCode = async () => {
+    //   const response = await fetch('https://ipapi.co/json/');
+    //   const data = await response.json();
+    //   return data.country_code;
+    // };
 
-    const getTrendingVideos = async () => {
-      setLoading(true);
-      const country = await getCountryCode();
-      const response = await fetch(`https://clipsurfmainbackend-production.up.railway.app/api/videos/${country}`, {
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      });
-      const json = await response.json();
-      setLoading(false);
-      setTotalVideos(json.data);
-      setVideoList(json.data.slice(0, fetchingNumber));
-    };
+    // const getTrendingVideos = async () => {
+    //   setLoading(true);
+    //   const country = await getCountryCode();
+    //   const response = await fetch(`https://clipsurfmainbackend-production.up.railway.app/api/videos/${country}`, {
+    //     headers: {
+    //       'Content-Type': 'application/json',
+    //     },
+    //   });
+    //   const json = await response.json();
+    //   setLoading(false);
+    //   setTotalVideos(json.data);
+    //   setVideoList(json.data.slice(0, fetchingNumber));
+    // };
 
-    const fetchSavedVideos = async () => {
-      setLoading(true);
-      if (isLoaded) {
-        const emailAddress = user?.primaryEmailAddress?.emailAddress;
-        const response = await fetch(`https://clipsurfmainbackend-production.up.railway.app/api/saved/${emailAddress}`, {
-          headers: {
-            'Content-Type': 'application/json',
-          },
-        })
-        const json = await response.json();
-        if (json.code === 404) {
-          setSaved([])
-        }
-        else {
-          setSaved(json.data)
-        }
-        setLoading(false);
-      }
-    }
+    // const fetchSavedVideos = async () => {
+    //   setLoading(true);
+    //   if (isLoaded) {
+    //     const emailAddress = user?.primaryEmailAddress?.emailAddress;
+    //     const response = await fetch(`https://clipsurfmainbackend-production.up.railway.app/api/saved/${emailAddress}`, {
+    //       headers: {
+    //         'Content-Type': 'application/json',
+    //       },
+    //     })
+    //     const json = await response.json();
+    //     if (json.code === 404) {
+    //       setSaved([])
+    //     }
+    //     else {
+    //       setSaved(json.data)
+    //     }
+    //     setLoading(false);
+    //   }
+    // }
 
     if (isLoaded && !isSignedIn) {
       router.push('/sign-in');

@@ -21,7 +21,7 @@ const Saved = () => {
     const SavedContext = useContext(savedContext)
     const { saved, fetchSavedVideos } = SavedContext
     const LoadingContext = useContext(loadingContext);
-    const { loading } = LoadingContext;
+    const { loading, setLoading } = LoadingContext;
     const [showSaved, setShowSaved] = useState([]);
 
     const fetchMoreVideos = () => {
@@ -40,7 +40,9 @@ const Saved = () => {
     useEffect(() => {
 
         if (saved.length === 0) {
+            setLoading(true);
             fetchSavedVideos();
+            setLoading(false);
         }
 
     }, [isLoaded]);

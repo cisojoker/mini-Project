@@ -7,6 +7,7 @@ import queryContext from '@/context/query/queryContext';
 import loadingContext from '@/context/loading/loadingContext';
 import showVideoContext from '@/context/showVideo/showVideoContext';
 import videoContext from '@/context/video/videoContext';
+import savedContext from '@/context/saved/savedContext';
 
 const Search = () => {
 
@@ -17,35 +18,38 @@ const Search = () => {
     const ShowVideoContext = useContext(showVideoContext);
     const { setVideoList } = ShowVideoContext;
     const VideoContext = useContext(videoContext);
-    const { setTotalVideos } = VideoContext;
+    const { setTotalVideos, getTrendingVideos, getCountryCode } = VideoContext;
+    const SavedContext = useContext(savedContext);
+    const { fetchSavedVideos } = SavedContext;
 
     const handleChange = (e) => {
         setQuery(e.target.value);
     }
 
-    const getTrendingVideos = async () => {
-        setLoading(true);
-        const country = await getCountryCode();
-        const response = await fetch(`https://clipsurf-main.onrender.com/api/videos/${country}`, {
-          headers: {
-            'Content-Type': 'application/json',
-          },
-        });
-        const json = await response.json();
-        setLoading(false);
-        setTotalVideos(json.data);
-        setVideoList(json.data.slice(0, 3));
-      };
+    // const getTrendingVideos = async () => {
+    //     setLoading(true);
+    //     const country = await getCountryCode();
+    //     const response = await fetch(`https://clipsurf-main.onrender.com/api/videos/${country}`, {
+    //       headers: {
+    //         'Content-Type': 'application/json',
+    //       },
+    //     });
+    //     const json = await response.json();
+    //     setLoading(false);
+    //     setTotalVideos(json.data);
+    //     setVideoList(json.data.slice(0, 3));
+    //   };
 
-    const getCountryCode = async () => {
-        const response = await fetch('https://ipapi.co/json/');
-        const data = await response.json();
-        return data.country_code;
-    };
+    // const getCountryCode = async () => {
+    //     const response = await fetch('https://ipapi.co/json/');
+    //     const data = await response.json();
+    //     return data.country_code;
+    // };
 
     const handleSubmit = async () => {
         setLoading(true);
         const country = await getCountryCode();
+        fetchSavedVideos();
         const response = await fetch(`https://clipsurf-main.onrender.com/api/search/`, {
             method: 'POST',
             headers: {

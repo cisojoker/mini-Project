@@ -10,7 +10,7 @@ const VideoItem = (props) => {
 
     const { user } = useUser()
     const SavedContext = useContext(savedContext)
-    const { saved, setSaved } = SavedContext
+    const { saved, setSaved, fetchSavedVideos } = SavedContext
     const AlertContext = useContext(alertContext)
     const { showAlert } = AlertContext
 
@@ -22,7 +22,7 @@ const VideoItem = (props) => {
         })
         const json = await response.json();
         showAlert(json.status, 'Video added to your liked videos!')
-        await fetchSavedVideos()
+        fetchSavedVideos()
     }
 
     const handleUnsave = async (ID) => {
@@ -33,18 +33,18 @@ const VideoItem = (props) => {
         })
         const json = await response.json();
         showAlert(json.status, 'Video removed from your liked videos!')
-        await fetchSavedVideos()
+        fetchSavedVideos()
     }
 
-    const fetchSavedVideos = async () => {
-        const response = await fetch(`https://clipsurfmainbackend-production.up.railway.app/api/saved/${user.primaryEmailAddress.emailAddress}`, {
-            headers: {
-                'Content-Type': 'application/json',
-            },
-        })
-        const json = await response.json();
-        setSaved(json.data)
-    }
+    // const fetchSavedVideos = async () => {
+    //     const response = await fetch(`https://clipsurfmainbackend-production.up.railway.app/api/saved/${user.primaryEmailAddress.emailAddress}`, {
+    //         headers: {
+    //             'Content-Type': 'application/json',
+    //         },
+    //     })
+    //     const json = await response.json();
+    //     setSaved(json.data)
+    // }
 
     return (
         <>

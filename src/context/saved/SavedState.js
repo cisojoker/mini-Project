@@ -10,7 +10,7 @@ const SavedState = (props) => {
     const { setLoading } = LoadingContext;
 
     const fetchSavedVideos = async () => {
-        setLoading(true);
+        // setLoading(true);
         if (isLoaded) {
             const emailAddress = user?.primaryEmailAddress?.emailAddress;
             const response = await fetch(`https://clipsurfmainbackend-production.up.railway.app/api/saved/${emailAddress}`, {
@@ -25,12 +25,12 @@ const SavedState = (props) => {
             else {
                 setSaved(json.data)
             }
-            setLoading(false);
+            // setLoading(false);
         }
     }
 
     return (
-        <SavedContext.Provider value={{ saved, setSaved , fetchSavedVideos }}>
+        <SavedContext.Provider value={{ saved, setSaved, fetchSavedVideos }}>
             {props.children}
         </SavedContext.Provider>
     );
