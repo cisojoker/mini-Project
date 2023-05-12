@@ -74,7 +74,7 @@ const Videos = () => {
         fetchSavedVideos();
       }
     }
-  }, []);
+  }, [isSignedIn]);
 
   const fetchMoreVideos = () => {
     setTimeout(() => {
