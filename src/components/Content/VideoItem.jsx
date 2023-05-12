@@ -15,6 +15,9 @@ const VideoItem = (props) => {
     const { showAlert } = AlertContext
 
     const handleLike = async (ID) => {
+        if (saved.includes(ID))
+            return showAlert('failure', 'Video already saved!')
+
         const response = await fetch(`https://clipsurfmainbackend-production.up.railway.app/api/liked/${user.primaryEmailAddress.emailAddress}/${ID}`, {
             headers: {
                 'Content-Type': 'application/json',

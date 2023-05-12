@@ -22,13 +22,13 @@ export default function App({ Component, pageProps }) {
         <AlertState>
           <LoadingState>
             <QueryState>
-              <ShowVideoState>
-                <VideoState>
-                  <SavedState>
+              <SavedState>
+                <ShowVideoState>
+                  <VideoState>
                     <Component {...pageProps} />
-                  </SavedState>
-                </VideoState>
-              </ShowVideoState>
+                  </VideoState>
+                </ShowVideoState>
+              </SavedState>
             </QueryState>
           </LoadingState>
         </AlertState>
