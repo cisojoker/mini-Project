@@ -21,14 +21,14 @@ const Hero = () => {
                     <span className={`text-4xl  md:text-4xl font-bold`}> in seconds - experience the</span> */}
           <span className={`text-7xl  md:text-8xl font-bold`}>
             {" "}
-            Future of nice video search
+            Future of Stress Managment
           </span>
           <span className={`text-4xl  md:text-4xl font-bold`}> with our</span>
           <span
             className={`text-7xl  md:text-8xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-violet-500`}
           >
             {" "}
-            AI-powered search engine!
+            AI-powered detection model!
           </span>
           <div className="button my-8">
             <Button content="Start Searching!" destination="/video" />
