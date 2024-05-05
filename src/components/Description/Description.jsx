@@ -134,7 +134,7 @@ const Description = () => {
                 <span className="before:block before:absolute before:-inset-1 before:-skew-y-3 before:bg-[#E74A9F] relative inline-block">
                   <span className="relative text-white">Advanced</span>
                 </span>
-                <span className="relative"> recipe suggest</span>
+                <span className="relative"> recipe suggestion</span>
               </p>
               <p className=" text-3xl lg:text-4xl ">
                 Recipe suggestion is in order to decrease the stress level
