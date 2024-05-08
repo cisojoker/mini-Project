@@ -1,4 +1,4 @@
-import { faTwitter } from "@fortawesome/free-brands-svg-icons";
+import { faInstagram, faTwitter } from "@fortawesome/free-brands-svg-icons";
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Link from "next/link";
@@ -43,11 +43,20 @@ const Footer = () => {
               </Link>
             </p>
             <div className="follow mt-8 flex items-center">
-              <p className="text-base">Follow us on </p>
+              <p className="text-base">Follow us on: </p>
               <Link href="https://x.com/ImMverma01?t=f6a6XAnDBOUNJ0Uj6WljfQ&s=09">
                 <FontAwesomeIcon
                   className="mx-1 hover:text-pink-500 text-white cursor-pointer transition-all duration-300"
                   icon={faTwitter}
+                />
+              </Link>
+            </div>
+            <div className="follow mt-2 flex items-center">
+              <p className="text-base">Follow us on: </p>
+              <Link href="https://x.com/ImMverma01?t=f6a6XAnDBOUNJ0Uj6WljfQ&s=09">
+                <FontAwesomeIcon
+                  className="mx-1 hover:text-pink-500 text-white cursor-pointer transition-all duration-300"
+                  icon={faInstagram}
                 />
               </Link>
             </div>

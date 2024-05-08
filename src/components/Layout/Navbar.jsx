@@ -43,7 +43,7 @@ const Navbar = () => {
               <li
                 className={`hover:bg-[rgba(255,255,255,0.2)] ${router.pathname == "/video" ? "bg-[rgba(255,255,255,0.2)]" : ""} p-1 px-4 rounded-md transition-all duration-300 cursor-pointer`}
               >
-                Videos
+                ChatBot
               </li>
             </Link>
             <Link href="/saved">
