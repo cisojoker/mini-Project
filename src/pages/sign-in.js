@@ -1,18 +1,18 @@
-import Signin from '@/components/Layout/SignIn'
-import Transition from '@/components/Layout/Transition'
-import Head from 'next/head'
-import React from 'react'
+import Signin from "@/components/Layout/SignIn";
+import Transition from "@/components/Layout/Transition";
+import Head from "next/head";
+import React from "react";
 
 const signin = () => {
   return (
     <>
       <Head>
-        <title>ClipSurf | Sign In</title>
+        <title>NeuroCalm | Sign In</title>
       </Head>
       <Transition />
       <Signin />
     </>
-  )
-}
+  );
+};
 
-export default signin
+export default signin;

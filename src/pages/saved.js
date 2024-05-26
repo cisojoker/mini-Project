@@ -1,14 +1,14 @@
-import Saved from '@/components/Content/Saved'
-import Alert from '@/components/Layout/Alert'
-import Transition from '@/components/Layout/Transition'
-import Head from 'next/head'
-import React from 'react'
+import Saved from "@/components/Content/Saved";
+import Alert from "@/components/Layout/Alert";
+import Transition from "@/components/Layout/Transition";
+import Head from "next/head";
+import React from "react";
 
 const saved = () => {
   return (
     <>
       <Head>
-        <title>Saved | ClipSurf</title>
+        <title>Saved | NeuroCalm</title>
       </Head>
       <Transition />
       <Alert />
@@ -16,7 +16,7 @@ const saved = () => {
         <Saved />
       </div>
     </>
-  )
-}
+  );
+};
 
-export default saved
+export default saved;
