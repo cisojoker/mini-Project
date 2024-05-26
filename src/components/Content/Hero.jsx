@@ -31,7 +31,7 @@ const Hero = () => {
             AI-powered detection model!
           </span>
           <div className="button my-8">
-            <Button content="Start Searching!" destination="/video" />
+            <Button content="Start Detecting!" destination="/video" />
           </div>
         </motion.div>
         <motion.div
